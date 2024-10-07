@@ -63,7 +63,7 @@ How much money was in your bank account at the start of the day?
 How many bank transactions were done?
 3
 Type of Transaction. Enter D for Debit and C for Credit.
-D
+D  
 Enter amount of Transaction:
 100
 Total: $900
