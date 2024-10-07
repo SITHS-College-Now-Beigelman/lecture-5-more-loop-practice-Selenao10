@@ -1,58 +1,59 @@
-/* Start your program by asking the user:
-How much money their bank account had at the start of the day AND how many bank transactions were done that day.
-Then in a loop, for each transaction do the following:
-Ask for the type of transaction – debit or credit. Also ask for the amount of the transaction.
-If debit, subtract the amount from the account. If credit, add the amount.
-Print out the total in the account after this transaction.
-When all transactions are complete:
-Print the total in the account at the end of the day.	
-Required Extra Credit: Print total debit and total credit amounts for the day.
-*/
-
 //Selena Ouyang
 //Reviewing Loops
 //10-7-2024
 
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
 int main ()
 {
-    int startMoney;
-    int numTransactions;
-    char typeTransaction;
-    int moneyLeft; 
-    int amount;
-    char Debit = 'D';
-    char Credit = 'C';
-    int totalDebit;
-
-    cout << "How much money was in your bank account at the start of the day?" << endl; //user direction to input starting amount
-    cin >> startMoney;
-    cout << "How many bank transactions were done?" << endl; //user direction to input number of bank transactions
-    cin >> numTransactions; 
-
-    while (numTransactions > 0) //while the number of transactions is greater than 0, the loops runs
-    {
-        cout << "Type of Transaction. Enter D for Debit and C for Credit." << endl;
-        cin >> typeTransaction;
-        cout << "Enter amount of Transaction:" << endl;
-        cin >> amount;
-            if (typeTransaction == Debit)
-            {    cout << startMoney - amount << endl;
-                startMoney = startMoney - amount;
-                totalDebit = amount; 
-                totalDebit = totalDebit + amount; 
-            }
-            if (typeTransaction == Credit)
-            {    cout << startMoney + amount << endl;
-                startMoney = startMoney + amount;
-            }
-    cout << "Number of Transactions left: " << numTransactions - 1 << endl; //Displays number of transactions left
-    numTransactions = numTransactions - 1;
-    }
+	double totalMoney; //variable for total money 
+	int numTransactions; //variable for number of transactions
+	char typeTransaction; //variable for typeTransaction
+	double amount;   //variable for amount for debit and/or credit
+	char Debit = 'D'; //sets variable, Debit, equal to 'D'
+	char Credit = 'C'; //sets variable Credit equal to 'C'
+	double totalDebit = 0.00; //sets starting debit amount to 0
+	double totalCredit = 0.00; //sets staring credit amount to 0
     
-    cout << "Total: " << startMoney; 
-    return 0; 
+	cout << "How much money was in your bank account at the start of the day?" << endl; //user direction to input starting amount
+	cin >> totalMoney;
+	cout << "How many bank transactions were done?" << endl; //user direction to input number of bank transactions
+	cin >> numTransactions;
+
+	while (numTransactions > 0) //while the number of transactions is greater than 0, the loops runs
+	{
+		cout << "Type of Transaction. Enter D for Debit and C for Credit." << endl; //directions for user to enter 'D' or 'C'
+		cin >> typeTransaction;
+		cout << "Enter amount of Transaction:" << endl; //direction to enter amount of transaction
+		cin >> amount;
+		
+		//if the transaction is debit:
+		if (typeTransaction == Debit)
+		{
+			cout << "Total: $" << totalMoney - amount << endl;
+			totalMoney = totalMoney - amount; //updates starting amount after each transaction. Subtracts deposit from total
+			totalDebit = totalDebit + amount; //updates the total debit after each transaction. Adds this deposit to deposit total 
+		}
+
+        //if the transaction is credit:
+		if (typeTransaction == Credit)
+		{
+		    cout << "Total: $" << totalMoney + amount << endl;
+			totalMoney = totalMoney + amount; //updates starting amount after each transaction. Adds credit from total
+			totalCredit = totalCredit + amount; //updates the total credit after each transaction. Adds this credit to credit total 
+		}
+		
+		cout << "Number of Transactions left: " << numTransactions - 1 << endl << endl; //Displays number of transactions left
+
+		numTransactions = numTransactions - 1; //subtracts 1 from the total transactions. Shows that 1 transactions is completed
+    	}
+
+	cout << "Total: $" << totalMoney << endl; //prints out "Total: $"
+	cout << "Total Debit Amount: $" << totalDebit << endl; //prints out "Total Debit Amount: $" followed by the total debit 
+	cout << "Total Credit Amount: $" << totalCredit << endl; //prints out "Total Credit Amount: $" followed by the total credit 
+	
+return 0;
 }
