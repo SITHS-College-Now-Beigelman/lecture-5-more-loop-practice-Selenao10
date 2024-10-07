@@ -57,3 +57,33 @@ int main ()
 	
 return 0;
 }
+/*
+How much money was in your bank account at the start of the day?
+1000
+How many bank transactions were done?
+3
+Type of Transaction. Enter D for Debit and C for Credit.
+D
+Enter amount of Transaction:
+100
+Total: $900
+Number of Transactions left: 2
+
+Type of Transaction. Enter D for Debit and C for Credit.
+D
+Enter amount of Transaction:
+200
+Total: $700
+Number of Transactions left: 1
+
+Type of Transaction. Enter D for Debit and C for Credit.
+C
+Enter amount of Transaction:
+500
+Total: $1200
+Number of Transactions left: 0
+
+Total: $1200
+Total Debit Amount: $300
+Total Credit Amount: $500
+*/
